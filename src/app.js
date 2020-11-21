@@ -52,8 +52,8 @@ app.post('/transfer', (req, res) => {
 
     accounts[from].balance = accounts[from].balance - parseInt(amount, 10);
     accounts[to].balance = accounts[to].balance + parseInt(amount, 10);
-    
-    writeJSON(accounts);
+
+    writeJSON();
 
     res.render('transfer', {
         message: "Transfer Completed"
@@ -72,7 +72,7 @@ app.post('/payment', (req, res) => {
     accounts['credit'].balance = accounts['credit'].balance - parseInt(amount, 10);
     accounts['credit'].available = accounts['credit'].available + parseInt(amount, 10);
 
-    writeJSON(accounts);
+    writeJSON();
 
     res.render('payment', {
         message: "Payment Successful",
